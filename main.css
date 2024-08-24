@@ -1,0 +1,1516 @@
+
+
+
+@font-face {
+    font-family: 'IMFell';
+    src: url('/fonts/IMFell-roman.woff') format('woff');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'IMFell';
+    src: url('/fonts/IMFell-italic.woff') format('woff');
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'KJV1611';
+    font-style: normal;
+    src: url('/fonts/KJV1611.otf') format('opentype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Lora';
+    src: url('/fonts/Lora-Italic.woff') format('woff');
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Lora';
+    src: url('/fonts/Lora-Regular.woff') format('woff');
+    font-display: swap;
+}
+
+
+.avGothic {
+    font-family: KJV1611; 
+    font-feature-settings: 'hist' on;
+    font-size: 1.1em;
+    font-display: swap;
+    line-height: 1.30;
+}
+
+.avGothic i {
+    color: gray;
+    font-family: IMFell;
+    font-style: normal;
+    vertical-align: .08em;
+    font-size: 85%;
+    
+}
+
+.avRoman {
+    font-family: IMFell; 
+    font-feature-settings: 'hist' on;
+    font-size: 1.1em;
+    font-display: swap;
+    line-height: 1.30;
+}
+
+.avRoman i {
+    color: gray;
+    font-family: Lora;
+    font-style: italic;
+    vertical-align: .02em;
+    font-size: 85%;
+    
+}
+
+
+
+
+.scaps {
+    font-size: 85%;
+}
+
+#libPage img {
+    box-shadow: 0px 0px 18px 0px rgba(0,0,0,0.8);
+}
+
+#slideIcon img {
+    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.8);
+}
+
+
+/*Search visual graph*/
+
+#visualHolder {
+	position: sticky;
+	top: 0;
+	background-color: #FCFCFC;
+	padding-bottom: 18px;
+	padding-top: 3px;
+	border-bottom: solid 2px #ddd;
+	
+}
+
+.search-visual {
+	height: 42px;
+	border-bottom: solid 1px #999;
+	padding: 0 5px;
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+
+.search-visual-label {
+	position: absolute;
+	font-size: 11px;
+	min-width: 50px;
+	height: 20px;
+	text-align: center;
+}
+
+.search-result-book-bar {
+	height: 40px;
+	display: block;
+	float: left;
+	cursor: pointer;
+}
+
+.search-result-book-bar span {
+	height: 40px;
+	display: block;
+	background: #ccc;
+	border-right: solid 1px #fff;
+}
+
+
+/* Bible Picker colors*/
+.search-result-book-bar span.divisionid-Gen,
+.search-result-book-bar span.divisionid-Exo,
+.search-result-book-bar span.divisionid-Lev,
+.search-result-book-bar span.divisionid-Num,
+.search-result-book-bar span.divisionid-Deu {
+	background: #9bd79b;
+}
+
+.search-result-book-bar span.divisionid-Jos,
+.search-result-book-bar span.divisionid-Jdg,
+.search-result-book-bar span.divisionid-Rth,
+.search-result-book-bar span.divisionid-1Sa,
+.search-result-book-bar span.divisionid-2Sa,
+.search-result-book-bar span.divisionid-1Ki,
+.search-result-book-bar span.divisionid-2Ki,
+.search-result-book-bar span.divisionid-1Ch,
+.search-result-book-bar span.divisionid-2Ch,
+.search-result-book-bar span.divisionid-Ezr,
+.search-result-book-bar span.divisionid-Neh,
+.search-result-book-bar span.divisionid-Est {
+	background: #8c8cca;
+}
+
+.search-result-book-bar span.divisionid-Job,
+.search-result-book-bar span.divisionid-Psa,
+.search-result-book-bar span.divisionid-Pro,
+.search-result-book-bar span.divisionid-Ecc,
+.search-result-book-bar span.divisionid-Son,
+.search-result-book-bar span.divisionid-Lam {
+	background: #c580c5;
+}
+
+.search-result-book-bar span.divisionid-Isa,
+.search-result-book-bar span.divisionid-Jer,
+.search-result-book-bar span.divisionid-Lam, 
+.search-result-book-bar span.divisionid-Eze,
+.search-result-book-bar span.divisionid-Dan {
+	background: #d38c8c;
+}
+
+.search-result-book-bar span.divisionid-Hos,
+.search-result-book-bar span.divisionid-Joe,
+.search-result-book-bar span.divisionid-Amo,
+.search-result-book-bar span.divisionid-Oba,
+.search-result-book-bar span.divisionid-Joh,
+.search-result-book-bar span.divisionid-Mic,
+.search-result-book-bar span.divisionid-Nah,
+.search-result-book-bar span.divisionid-Hak,
+.search-result-book-bar span.divisionid-Zep,
+.search-result-book-bar span.divisionid-Hag,
+.search-result-book-bar span.divisionid-Zec,
+.search-result-book-bar span.divisionid-Mal {
+	background: #d1d16a;
+}
+
+/* gospels */
+.search-result-book-bar span.divisionid-Mat,
+.search-result-book-bar span.divisionid-Mar,
+.search-result-book-bar span.divisionid-Luk,
+.search-result-book-bar span.divisionid-Joh {
+	background: #ffa2a2;
+}
+
+.search-result-book-bar span.divisionid-Act {
+	background: #c476aa;
+}
+
+.search-result-book-bar span.divisionid-Rom,
+.search-result-book-bar span.divisionid-1Co,
+.search-result-book-bar span.divisionid-2Co,
+.search-result-book-bar span.divisionid-Gal,
+.search-result-book-bar span.divisionid-Eph,
+.search-result-book-bar span.divisionid-Phi,
+.search-result-book-bar span.divisionid-Col,
+.search-result-book-bar span.divisionid-1Th,
+.search-result-book-bar span.divisionid-2Th,
+.search-result-book-bar span.divisionid-1Ti,
+.search-result-book-bar span.divisionid-2Ti,
+.search-result-book-bar span.divisionid-Tit,
+.search-result-book-bar span.divisionid-Phm {
+	background: #9c9ce1;
+}
+
+.search-result-book-bar span.divisionid-Heb,
+.search-result-book-bar span.divisionid-Jam,
+.search-result-book-bar span.divisionid-1Pe,
+.search-result-book-bar span.divisionid-2Pe,
+.search-result-book-bar span.divisionid-1Jo,
+.search-result-book-bar span.divisionid-2Jo,
+.search-result-book-bar span.divisionid-3Jo,
+.search-result-book-bar span.divisionid-Jud {
+	background: #8cc9c9;
+}
+
+.search-result-book-bar span.divisionid-Rev {
+	background: #9575a1;
+}
+
+
+
+
+
+#grid-Gen,
+#grid-Exo,
+#grid-Lev,
+#grid-Num,
+#grid-Deu {
+	background: #B2E4B2;
+}
+
+#grid-Jos,
+#grid-Jdg,
+#grid-Rth,
+#grid-1Sa,
+#grid-2Sa,
+#grid-1Ki,
+#grid-2Ki,
+#grid-1Ch,
+#grid-2Ch,
+#grid-Ezr,
+#grid-Neh,
+#grid-Est {
+	background: #A5A5D9;
+}
+
+#grid-Job,
+#grid-Psa,
+#grid-Pro,
+#grid-Ecc,
+#grid-Son,
+#grid-Lam {
+	background: #D9A3D9;
+}
+
+#grid-Isa,
+#grid-Jer,
+#grid-Lam, 
+#grid-Eze,
+#grid-Dan {
+	background: #DEACAC;
+}
+
+#grid-Hos,
+#grid-Joe,
+#grid-Amo,
+#grid-Oba,
+#grid-Jon,
+#grid-Mic,
+#grid-Nah,
+#grid-Hab,
+#grid-Zep,
+#grid-Hag,
+#grid-Zec,
+#grid-Mal {
+	background: #DDDD96;
+}
+
+/* gospels */
+#grid-Mat,
+#grid-Mar,
+#grid-Luk,
+#grid-Joh {
+	background: #F7C0C0;
+}
+
+#grid-Act {
+	background: #D59AC1;
+}
+
+#grid-Rom,
+#grid-1Co,
+#grid-2Co,
+#grid-Gal,
+#grid-Eph,
+#grid-Phi,
+#grid-Col,
+#grid-1Th,
+#grid-2Th,
+#grid-1Ti,
+#grid-2Ti,
+#grid-Tit,
+#grid-Phm {
+	background: #B5B5E9;
+}
+
+#grid-Heb,
+#grid-Jam,
+#grid-1Pe,
+#grid-2Pe,
+#grid-1Jo,
+#grid-2Jo,
+#grid-3Jo,
+#grid-Jud {
+	background: #A8D9D9;
+}
+
+#grid-Rev {
+	background: #BA94C8;
+}
+
+
+body {
+	background-color: #FCFCFC;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 1em;
+	margin: 0px;
+    margin-top: 0px;
+}
+
+
+
+#bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0px;
+  overflow: auto;
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+}
+
+
+span.capt {
+	font-family: Verdana, Calibri, Geneva, sans-serif;
+	font-size: 10pt;
+	font-weight: bold;
+	color: #7F2222;
+	display: block;
+	margin: .3em .6em .3em .3em;
+	padding: 0 0 .3em 0;
+	border-bottom: solid 1px;
+}
+
+span.foot {
+	font-family: Verdana, Calibri, Geneva, sans-serif;
+	color: #000000;
+	text-align: center;
+	padding: 0.2em 0 0 0;
+	font-size: .8em;
+	color: gray;
+	display: block;
+	margin-top: 8px;
+}
+
+span.popBody {
+	padding: 0px 0px 0px 5px;
+}
+
+
+p.center {
+	text-align: center;
+}
+
+table.border {
+	border: 1px solid #D7C08B;
+	padding: 15px;
+}
+
+.head1 {
+	padding: 5px;
+	border-radius: 5px;
+	border: 2px solid #C1C1C1;
+}	
+    
+#bibHead {   
+    position: sticky;
+	top: 0;
+}
+
+
+#chap-main {
+	padding: 0 5px;
+    overflow: auto;
+    /*height: 41vh;
+    font-family: Lora;*/
+    font-size: 1.05em;
+    /*font-feature-settings: 'smcp' on;*/
+}
+
+#chap-main i {
+    color: gray;
+    /*font-family: 'IMFell';*/
+    /*font-style: normal;*/
+    /*vertical-align: .05em;
+    font-size: 1em;*/
+}
+
+
+#chap-main2 {
+	padding: 0 5px;
+    overflow: auto;
+    height: 40vh;
+    display: none;
+}
+
+
+
+#bibDivider {
+    height: 25px;
+    background: #A8D9D9;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    padding: 2px;
+    border: 2px solid #C1C1C1;
+    display: none;
+}
+
+.barMenu {
+    cursor: pointer; 
+    padding-left: 16px;
+    padding-right: 10px;
+}
+
+
+#libBarMenuIcon, #devBarMenuIcon {
+    height: 24px;
+    width: 24px;
+	/* To position and center vertically*/
+	position: absolute;
+	top: 50%;
+	left: 16px;
+	transform: translateY(-50%);
+    cursor: pointer;
+    }
+
+
+
+.toolLabel {
+    padding-left: 6px;
+    padding-right: 6px;
+    font-weight: bold;
+    color: #660000;
+    margin: auto;
+	cursor: pointer;
+    font-size: .9em;
+}
+
+/*
+#divChap, #divVersion {
+    font-weight: bold;
+    color: #660000;
+    margin: auto;
+	cursor: pointer;
+}
+*/
+
+
+.footer {
+	text-align: center;
+	font-size: .8em;
+}
+
+.foot1 {
+    /*position: sticky;*/
+    /*bottom: 0px;*/
+    position: relative;
+	border-radius: 5px;
+	border: 2px solid #C1C1C1;
+	text-align: center;
+	font-size: .8em;
+   
+   margin-top: 20px;
+}
+
+h1.bib {
+	color: #990000;
+	/*font-family: Verdana, Geneva, sans-serif;*/
+	font-size: 22px;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 0px;
+	margin-top: 5px;
+}
+
+h2.bib {
+	color: #990000;
+	/*font-family: Verdana, Geneva, sans-serif;*/
+	font-size: 18px;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 6px;
+	margin-top: 4px;
+    padding-top: 0px;
+}
+
+h3.promise {
+	color: #000000;
+	/*font-family: Verdana, Geneva, sans-serif;*/
+	font-size: 14px;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 5px;
+	margin-top: 0px;
+}
+
+h3.library {
+	color: #000000;
+	/*font-family: Verdana, Geneva, sans-serif;*/
+	font-size: 18px;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 5px;
+	margin-top: 0px;
+}
+
+
+.chapHead2 {
+	/*font-family: Verdana, Geneva, sans-serif;*/
+	font-size: 15px;
+	text-align: center;
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+
+.popFoot {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 11px;
+	text-align: center;
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+
+.leftcol {
+	width: 35px;
+	float: left;
+	padding-right: 10px;
+}
+
+.middlecol {
+	float: left;
+	width: 100%;
+}
+
+.rightcol {
+	width: 35px;
+	float: right;
+	padding-left: 10px;
+}
+
+.pvbutton {
+	background-color: #FFFEF5;
+	height: 100%;
+	width: 30px;
+	text-align: center;
+	font-size: 16px;
+	transition-duration: 0.4s;
+	cursor: pointer;
+}
+
+.vericaltext {
+	width: 1px;
+	word-wrap: break-word;
+	font-family: monospace;
+	/* this is just for good looks */
+	white-space: pre;
+	/* this is for displaying whitespaces */
+}
+
+.btnchap {
+	height: 25px;
+	width: 50px;
+	text-align: center;
+	font-size: 14px;
+	cursor: pointer;
+	border-radius: 3px;
+	background-color: #F1F1F1;
+	border: 1px solid #9299EF;
+	color: #4E4E4E;
+}
+
+#currChap {
+    color: #990000;
+	/*font-family: Verdana, Geneva, sans-serif;*/
+	font-weight: bold;
+    text-align: center;
+}
+
+
+.selectchap {
+	height: 25px;
+	width: 60px;
+	text-align: center;
+	font-size: 16px;
+	cursor: pointer;
+	border-radius: 3px;
+	background-color: #F1F1F1;
+	border: 1px solid #9299EF;
+	color: #4E4E4E;
+}
+
+
+
+.btn {
+	height: 25px;
+	text-align: center;
+	cursor: pointer;
+	border-radius: 3px;
+	background-color: #F1F1F1;
+	border: 1px solid #9299EF;
+	color: #4E4E4E;
+}
+
+
+.btnchap:hover, .btn:hover, .selectchap:hover {
+	background-color: #E8D588;
+}
+
+a:link {
+	text-decoration: none;
+	color: #4B50B7;
+}
+
+a:hover {
+	text-decoration: underline;
+	color: #4B50B7;
+}
+
+.xref {
+	font-size: .8em;
+	padding-left: 3px;
+}
+
+
+.controls {
+	background: #FCFCFC;
+	position: sticky;
+	top: 0;
+	border-bottom: 2px solid #C1C1C1;
+}
+
+.datalist {
+   height:50px !important;
+   max-height:80px !important;
+   overflow-y:auto;
+   display:block !important;
+}
+
+.spacer {
+  flex-grow: 1;
+}
+
+#editor-old {
+	width: 100%;
+	height: 100%;
+}
+
+#toolPanel {
+	position: sticky;
+	top: 0;
+}
+
+#editor {
+	width: 100%;
+	min-height: 150px;
+	border: 1px solid gray;
+	flex: 1;
+}
+
+.clipHead {
+	text-align: center;
+	padding-bottom: 10px;
+}
+
+.button-head {
+	text-align: center;
+}
+
+.button-group {
+	text-align: center;
+	padding-top: 2px;
+	padding-bottom: 0px;
+	display: flex;
+}
+
+
+input[type="radio"] {
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+
+#search-details {
+	text-align: center;
+	margin-top: 10px;
+	border-radius: 5px;
+	border: 2px solid #C1C1C1;
+}
+
+#search-hits {
+	margin-top: 0px;
+}
+	
+.vsHilite {
+	background-color: #feffad;
+	padding: 3px;
+	text-indent: 1em;
+}
+
+
+.paraVsHilite {
+	display: inline;
+	background-color: #feffad;
+}
+
+
+.alt-list:nth-of-type(odd) {
+	padding: 3px;
+}
+
+.alt-list:nth-of-type(even) {
+	padding: 3px;
+}
+
+
+.alt-verse:nth-of-type(odd) {
+	padding: 3px;
+	text-indent: 1em;
+}
+
+.alt-verse:nth-of-type(even) {
+	padding: 3px;
+	text-indent: 1em;
+}
+
+.verse {
+	text-indent: 1em;
+	padding: 3px;
+}
+
+.para {
+	display: inline;
+}
+
+.paraBreak {
+	text-indent: 1.5em;
+	line-height: 1.4em;
+	padding-top: 5px;
+}
+
+.bibHeading {
+	text-indent: 1em;
+	padding: 12px 0px 3px 3px;
+    color: brown;
+    font-weight: bold;
+    /*font-family: Lora;*/
+}
+
+.bibHeading1611 {
+	text-indent: 1em;
+	padding: 12px 0px 3px 3px;
+    color: brown;
+    font-weight: bold;
+    font-family: IMFell;
+    font-size: 1.1em;
+}
+
+
+
+
+#refEntry {
+	border: 1px solid #9299EF; 
+	font-size: 1em;
+}
+
+#schEntry {
+	border: 1px solid #9299EF; 
+	font-size: 1em;
+	width: 250px;
+}
+
+.vsSelect {
+	background-color: #dfdfdf !important;
+}
+
+.promise {
+	padding-left: 5px;
+}
+
+#dropdown, #listDropdown {
+	width: 280px;
+	font-size: 1em;
+}
+
+#topicSelect {
+	display: inline;
+    padding-bottom: 10px;
+}
+
+.pref {
+	font-size: .8em;
+	padding: 5px 0px 5px 5px;
+}
+
+mark {
+	background-color: #FEFF86;
+}
+
+textareaa {
+    font: 15px Verdana, sans-serif;
+}
+
+ref {
+	color: brown;
+}
+
+ref:hover {
+	text-decoration: underline;
+	color: brown;
+}
+
+#nextDiv {
+  position: fixed;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  right: 0;
+  z-index: 99;
+  background: #fbf7d5;
+  border: 2px solid #dadada;
+  border-right: 0;
+  width: 55px;
+  top: 35%;
+  height: 200px;
+  transition: display 0.3s;
+  -webkit-transition: display 0.3s;
+  border-radius: 15px 0 0 15px;
+  color: brown;
+  font-size: .9em;
+  user-select: none;
+}
+
+#prevDiv {
+  position: fixed;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  left: 0;
+  border: 2px solid #dadada;
+  border-left: 0;
+  z-index: 99;
+  background: #fbf7d5;
+  width: 55px;
+  top: 35%;
+  height: 200px;
+  transition: display 0.3s;
+  -webkit-transition: display 0.3s;
+  border-radius: 0 15px 15px 0;
+  color: brown;
+  font-size: .9em;
+  user-select: none;
+}
+
+/*#nextDiv:hover, #prevDiv:hover {
+    opacity: .7;
+}*/
+
+
+
+#listBtnGrp {
+	padding-top: 0px;
+	display: flex;
+}
+
+.listBtn {
+	display: inline;
+	padding: 3px;
+	margin: 5px;
+	color: brown;
+}
+
+#listView {
+	display: none;
+	position: absolute;
+	background-color: #fbf7d5;
+	/*font-family: Verdana, Calibri, Tahoma, Geneva, sans-serif;*/
+	border: 2px solid #C6C6C6;
+	left: 50%;
+	transform: translate(-50%, 0%);
+	padding: 0.5em .5em 0.5em .5em;
+	z-index: 1;
+	overflow: auto;
+}
+
+#listBody {
+	overflow: auto;
+	background-color: #FFFFFF;
+    border: solid 2px lightgray;
+}
+
+.icon {
+    padding-left: 15px;
+}
+
+.linkList {
+	padding: 5px;
+}
+
+.linkListt:nth-child(even) {
+    background: #EEEEEE; 
+}
+
+
+/* Menu */
+
+.menuBreak {
+	width: 80%;
+	margin-block-start: 0.2em;
+	margin-block-end: 0.2em;
+}
+
+
+.dot-dropdown {
+    display: none;
+    position: fixed;
+    background-color: #f9f9f9;
+    min-width: 170px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+	font-size: smaller;
+}
+
+.dot-dropdown a {
+    color: black;
+    padding: 10px 12px;
+    text-decoration: none;
+    display: block;
+}
+
+.dot-dropdown a:hover {
+    background-color: #f1f1f1
+    }
+
+
+/* Bible Version Menu*/
+
+.bib-dropdown {
+    display: none;
+    position: fixed;
+    background-color: #f9f9f9;
+    min-width: 170px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+	font-size: smaller;
+}
+
+.bib-dropdown a {
+    color: black;
+    padding: 10px 12px;
+    text-decoration: none;
+    display: block;
+}
+
+.bib-dropdown a:hover {
+    background-color: #f1f1f1
+    }
+
+/* Bar Menu*/
+
+.bar-dropdown {
+    display: none;
+    position: fixed;
+    background-color: #f9f9f9;
+    min-width: 170px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+	font-size: smaller;
+}
+
+.bar-dropdown a {
+    color: black;
+    padding: 10px 12px;
+    text-decoration: none;
+    display: block;
+}
+
+.bar-dropdown a:hover {
+    background-color: #f1f1f1
+    }
+
+
+
+#prayList {
+	width: 100%%;
+}
+
+th, td {
+  border-bottom: 1px solid #ddd;
+  /*padding: 10px;*/
+  text-align: left;  
+}
+
+
+
+/* Top button (scroll) */
+
+#scrollBtn {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 70px; /* Place the button at the bottom of the page */
+  right: 20px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: brown; /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 10px; /* Some padding */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 16px; /* Increase font size */
+  opacity: 0.5;
+}
+
+#scrollBtn:hover {
+  opacity: 1.0;
+}
+
+
+
+/* If the screen size is 500px wide or less, hide the element */
+@media screen and (max-width: 500px) {
+  .btnchap {
+    display: none;
+  }
+  .chapHead2 {
+    display: none;
+  }
+
+  #chapbuttons-bottom {
+    display: none;
+  }
+  
+  #foot {
+	  display: none;
+  }
+}
+
+@media screen and (min-width: 800px) {
+	body {
+		max-width: 800px;
+		margin: auto;
+	}
+}
+
+
+
+
+#popup {
+	display: none; 
+	position: absolute; 
+	text-align: left; 
+	width: 320px; 
+	z-index: 999; 
+	font-family: Verdana, Calibri, Tahoma, Geneva, sans-serif;
+	font-size: 10pt; 
+	line-height: normal; 
+	padding: 0.4em 0.4em 0.6em 0.8em; 
+	border-radius: 5px; 
+	box-shadow: rgb(85, 85, 85) 0px 0px 7px; 
+	z-index: 999;
+}
+
+#helpWin {
+	display: none; 
+	position: absolute; 
+	/*font-family: Verdana, Calibri, Tahoma, Geneva, sans-serif;*/ 
+	color: rgb(0, 0, 0); 
+	border: 2px solid rgb(198, 198, 198); 
+	left: 50%; 
+	transform: translate(-50%, 0%); 
+	padding: 0.5em; 
+	overflow: auto; 
+	z-index: 999;
+}
+
+#pickWin, #titlesWin, #devWin, #topicsWin, #summaryWin, #dailyWin{
+	display: none; 
+	position: absolute; 
+	/*font-family: Verdana, Calibri, Tahoma, Geneva, sans-serif;*/ 
+	color: rgb(0, 0, 0); 
+	background-color: #f9f9f9;
+	border: 2px solid rgb(198, 198, 198); 
+	left: 50%; 
+	transform: translate(-50%, 0%); 
+	padding: 0.3em; 
+	overflow: auto; 
+	/*z-index: 999;*/ 
+    
+    width: 85%;
+    /*height: 90vh;*/
+    
+    max-width: 600px;
+    max-height: 80vh;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+}
+
+#summaryWin, #dailyWin {
+    background-color: white;
+    padding: 0.5em; 
+    z-index: 99;
+}
+
+#dailyWin {
+    background-image: url("icon/sail2.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    min-height: 40%;
+    max-width: 500px;
+    top: 115px;
+}
+
+
+#titleList, #bookChapList {
+	/*background-color: #f5f5f5;*/
+	/*border: 1px solid rgba(0, 0, 0, 0.5);*/
+	font-size: 1.1em;
+	padding: 10px;
+	list-style-position: inside;
+}
+
+li{
+  padding: 5px 0px;
+  cursor: pointer;
+}
+
+#dailyBodyDiv {
+	padding: 0px 10px;
+	width: 80%;
+}
+
+.dailyBody {
+	color: yellow;
+	font-size: 1.2em;
+	font-style: italic;
+    margin: 0;
+}
+
+.dailyBodyRef {
+	color: yellow;
+	font-size: 1.0em;
+	margin-top: 12px;
+}
+
+
+.dailyHead {
+	border-bottom: 2px solid lightgray;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+    color: yellow;
+	font-size: 1.4em;
+}
+
+
+.libChapHead {
+	border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-top: 15px;
+    color: brown;
+}
+
+.displayPage {
+    padding: 8px;
+}
+
+#libBackIcon, #devBackIcon {
+    padding-left: 10px;
+    padding-right: 10px;
+	width: 24px;
+	height: 24px;
+	position: absolute;
+    top: 50%;
+    left: 0px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+#libForwIcon, #devForwIcon{
+    padding-left: 10px;
+    padding-right: 10px;
+	width: 24px;
+	height: 24px;
+	position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+	right: 0px;
+    cursor: pointer;
+}
+
+.bookGrid, .chapGrid {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  grid-gap: 0px;
+}
+
+
+.grid-item, .chap-grid-item {
+  
+  font-weight: bold;
+}
+
+.bookGrid > div {
+  border: 1px solid rgba(0, 0, 0, 0.6);
+  text-align: center;
+  padding: 15px 0;
+  font-size: .9em;
+}
+
+.chapGrid > div {
+  border: 1px solid rgba(0, 0, 0, 0.6);
+  background-color: #A8D9D9;
+  text-align: center;
+  padding: 15px 0;
+  font-size: .9em;
+}
+
+
+.titleBar {
+    background: #f7f7f7;
+    display: flex;
+    position: sticky;
+    top: 0;
+    padding: 5px;
+	
+	border: 2px solid rgba(0, 0, 0, 0.3);
+	border-radius: 5px;
+}
+
+
+.subTitle {
+    font-weight: bold;
+    color: #000099;
+	cursor: pointer;
+	border: 2px solid lightgray;
+	padding: 4px;
+    
+}
+
+/**
+ * Picker Tabs
+ */
+ 
+.pickTabs {
+	display: flex;
+	flex-wrap: wrap; // make sure it wraps
+}
+
+.pickTabs label {
+	order: 1; // Put the labels first
+	display: block;
+	padding: .4rem .8rem;
+	margin-right: 0.1rem;
+	cursor: pointer;
+	margin-bottom: 5px;
+  /*background: #90CAF9;*/
+  /*font-weight: bold;*/
+  transition: background ease 0.2s;
+}
+
+.pickTabs .pickTab {
+  order: 99; // Put the tabs last
+  flex-grow: 1;
+	width: 100%;
+	display: none;
+  padding-top: .5rem;
+  /*border-top: 1px solid #828282;*/
+}
+
+.pickTabs input[type="radio"] {
+	display: none;
+}
+
+.pickTabs input[type="radio"]:checked + label {
+	/*background: #DDDDDD;*/
+    color: #990000;
+    border-top: 2px solid #990000;
+    /*border-left: 1px solid #828282;*/
+    /*border-right: 1px solid #828282;*/
+	/*border-bottom: 2px solid #f7f7f7;*/
+	z-index: 99;
+	font-weight: bold;
+	
+}
+
+.pickTabs input[type="radio"]:checked + label + .pickTab {
+	display: block;
+
+}
+
+
+/**
+ * Library Titles Tabs
+ */
+.libTabs {
+	display: flex;
+	flex-wrap: wrap; // make sure it wraps
+}
+
+.libTabs label {
+	order: 1; // Put the labels first
+	display: block;
+	padding: .4rem .8rem;
+	margin-right: 0.1rem;
+	margin-bottom: 5px;
+	cursor: pointer;
+  
+  /*font-weight: bold;*/
+  transition: background ease 0.2s;
+}
+
+.libTabs .libTab {
+    order: 99; // Put the tabs last
+    flex-grow: 1;
+    width: 100%;
+    display: none;
+    /*padding-top: .5rem;*/
+    /*border: 2px solid lightgray;*/
+    /*background-color: #f0f0f0;*/
+}
+
+.libTabs input[type="radio"] {
+	display: none;
+}
+
+.libTabs input[type="radio"]:checked + label {
+	/*background: #DDDDDD;*/
+    color: #990000;
+    border-top: 2px solid #990000;
+    /*border-left: 1px solid #828282;*/
+    /*border-right: 1px solid #828282;*/
+	
+	border-bottom: 2px solid #990000;
+	background: #efefef;
+	font-weight: bold;
+	z-index: 99;
+}
+
+.libTabs input[type="radio"]:checked + label + .libTab {
+	display: block;
+}
+
+
+/* Side nav menu */
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #888;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 35px;
+  /*border: 2px solid lightgray;*/
+  border-left: 0;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 1.05em;
+  cursor: pointer;
+  color: gray;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: black;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 22px;
+  font-size: 28px;
+  margin-left: 50px;
+  color: brown;
+  cursor: pointer;
+}
+
+.closebtn {
+  position: absolute;
+  top: 10px;
+  right: 22px;
+  font-size: 22px;
+  margin-left: 50px;
+  color: brown;
+  cursor: pointer;
+}
+
+.summaryClose {
+  position: absolute;
+  top: -20px;
+  right: 16px;
+  font-size: 32px;
+  margin-left: 50px;
+}
+
+
+
+#navMenuHeading {
+	font-size: 20px;
+	font-weight: bold;
+	color: brown;
+	padding: 20px;
+}
+
+
+/* Bottom tabs */
+
+
+.tabButton {
+  
+  background-color: #fff;
+  text-align: center;
+  color: gray;
+  float: left;
+  border: 1px solid #CACACA;
+  border-top: 2px solid #CACACA;
+  outline: none;
+  cursor: pointer;
+  padding: 30px 10px 4px 10px;
+  font-size: 16px;
+  width: 25%;
+  margin-top: 2px;
+  }
+  
+.tabButton:hover {
+  font-weight: bold;
+}
+
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 0px 0px;
+  margin-top: 0px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 58px;
+}
+
+
+
+/* spinner */
+
+/* Center the loader */
+#loader {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 99;
+  width: 60px;
+  height: 60px;
+  margin: -76px 0 0 -76px;
+  border: 12px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 12px solid #3498db;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+/* Wavy bottom*/
+

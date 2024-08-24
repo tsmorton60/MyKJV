@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta name="theme-color" content="#DFD997"/>
+    <title>MyKJV App</title>
+    <link rel="stylesheet" type="text/css" href="/main.css">
+	<link rel="manifest" href="/manifest.json">
+	<link rel="apple-touch-icon" href="/icon/apple-icon-192.png">
+	
+	<link rel="preload" href="/fonts/Lora-Regular.woff" as="font"  type="font/woff" crossorigin="anonymous" />
+	<link rel="preload" href="/fonts/Lora-Italic.woff" as="font"  type="font/woff" crossorigin="anonymous" />
+	<link rel="preload" href="/fonts/IMFell-roman.woff" as="font"  type="font/woff" crossorigin="anonymous" />
+	<link rel="preload" href="/fonts/IMFell-italic.woff" as="font"  type="font/woff" crossorigin="anonymous" />
+    <link rel="preload" href="/fonts/KJV1611.otf" as="font"  type="font/otf" crossorigin="anonymous" /> 
+<!-- -->
+
+</head>
+<body >
+        <!-- Slide Menu -->
+		<div id="sidenav" class="sidenav">
+		  <a id="navClose" class="closebtn">&times;</a>
+		  <div align="center" id="navMenuHeading">-MyKJV-</div>
+          <div align="center" style="padding-bottom: 20px" id="slideIcon"><img src="icon/mykjv-96.jpg"></div>
+            <hr class="menuBreak">
+			<!--<a id="menuAccount" style="padding-top: 20px">Account</a>-->
+            <a id="menuSettings" >Settings</a>
+            <hr class="menuBreak">
+			<!--<a id="dailyVerse" >Daily Verse</a>-->
+            <a id="menuHelp" >User Manual</a>
+            <a id="menuWelcome" >Welcome</a>
+            <a id="menuAbout" >About</a>
+		</div>
+		
+        
+        <!-- Daily Popup -->
+        <div id="dailyWin">
+
+			<div class="dailyHeader">
+				<p class="dailyHead">A Moment With The Word</p>
+			</div>
+			<div id="dailyBodyDiv">
+				<p class="dailyBody">
+					The LORD is my shepherd; I shall not want. He maketh me to lie down in green pastures: he leadeth me beside the still waters. He restoreth my soul: he leadeth me in the paths of righteousness for his name's sake.
+				</p>
+				<p class="dailyBodyRef">
+					Psalm 23:1-3
+				</p>
+				<p class="dailyBodyClose" style="margin: auto; color: lightgray;">
+					Tap to Close
+				</p>
+
+			</div>
+		
+		</div>
+        
+
+        <!-- Verse Popup -->
+        <div id="popup"></div>
+        
+        <!-- Help Popup -->
+        <div id="helpWin"></div>
+
+        <!-- Picker Popup -->
+        <div id="pickWin">
+
+            <div class="pickTabs">
+              <input type="radio" name="pickTabs" id="bookTab" checked="checked">
+              <label id="bookTabLabel" for="bookTab">Book</label>
+              <div class="pickTab">
+                <div id="bookGrid" class="bookGrid">
+                </div>
+              </div>
+              
+              <input type="radio" name="pickTabs" id="chapTab">
+              <label id="chapTabLabel" for="chapTab">Chapter</label>
+              <div class="pickTab">
+                <div id="chapGrid" class="chapGrid"><b><p>You must select a Bible book first.</b></p>
+                </div>
+              </div>
+            </div>			
+        </div>
+
+
+        <!-- Library Titles Popup -->
+        <div id="titlesWin">
+            <div class="libTabs">
+              <input type="radio" name="libTabs" id="libBookTab" checked="checked">
+              <label id="libTitleTabLabel" for="libBookTab">Titles</label>
+              <div class="libTab">
+                <div id="libBookPageTitle"><p class="libChapHead"><b>Click Title To View Chapters</b></p> 
+				<ul id="titleList"></ul>
+                </div>
+              </div>
+              
+              <input type="radio" name="libTabs" id="libChapTab">
+              <label id="libChapTabLabel" for="libChapTab">Chapter</label>
+              <div class="libTab">
+                <div id="libChapPage"><p class="libChapHead"><b>Click Chapter To View Page</b></p>
+				<ul id="bookChapList"></ul>
+                </div>
+              </div>
+            </div>			
+        </div>
+
+
+        <!-- Devotion Titles Popup -->
+        <div id="devWin">
+            <div id="devBookPageTitle"><p class="libChapHead"><b>Click Title To View</b></p> 
+            <ul id="devTitleList"></ul>
+            </div>
+        </div>
+
+        
+        <!-- Topics Titles Popup -->
+        <div id="topicsWin">
+            <div id="topicPageTitle"><p class="libChapHead"><b>Click Title To View</b></p> 
+            <ul id="topicTitleList"></ul>
+            </div>
+        </div>
+
+
+        <!-- Summary Page -->
+        <div id="summaryWin">
+            <div id="topicPageTitle" style="position: relative;">
+                <p id="summaryTitle" class="libChapHead"><b>Summary of Chapter...</b> </p>
+                    <span id="summaryClose" class="summaryClose">&times;</span>
+               
+                <p id="summaryPage"></p>
+                <p style="font-size: smaller;">(From <i>The Summarized Bible</i>, Keith Brooks)</p>
+            </div>
+        </div>
+
+
+        <!-- Top button -->
+        <button id="scrollBtn" title="Go to top">Top</button>
+					
+        <!-- Dot Menu -->
+        <div id="dot-dropdown" class="dot-dropdown">
+            <a id="togPara" >Verse/Paragraph</a>
+            <a id="togXRefs" >Cross References</a>
+            <a id="togHeadings" >Show/Hide Headings</a>
+            <hr class="menuBreak">
+			<a id="menuCopy" >Copy Marked Verses</a>
+            <a id="menuAdd" >Add To Verse List</a>
+            <a id="menuView" >View Verse List</a>
+            <hr class="menuBreak">
+            <a id="chapSummary" >Chapter Overview</a>
+        </div>
+
+        
+        <!-- Bible Select popup -->
+        <div id="bibSelectWin" class="bib-dropdown">
+            <a id="kjvText" >King James Version</a>
+            <a id="bsbText" >King James Version, 1611</a>
+        </div>
+
+		
+		<!-- Verse List Win -->
+		<div id="listView">
+			<div id="list-head" class="head1" style="margin-bottom: 10px;">
+				<div align="center">
+					<h2 class="bib">Bible Verse List</h2>
+					<h3 id="listCount" class="promise"></h3>
+				</div>
+			</div>	
+			<div id="listBody"></div>
+			<hr>
+			<div id="listBtnGrp">
+				<button id="copyList" class="listBtn">Copy<br>List</button>
+				<button id="copyMarked" class="listBtn">Copy<br>Marked</button>
+				<div class="spacer"></div>
+				<button id="listClose" style="">Close</button>
+				<div class="spacer"></div>
+				<button id="clearList" class="listBtn">Clear<br>List</button>
+				<button id="clearMarked" class="listBtn">Clear<br>Marked</button>
+			</div>
+			
+		</div>
+
+	<!-- Bible Panel -->
+	<div class="tabcontent" id="bible-panel">
+		<div id="bibHead" class="head1">
+			<div id="head" style="display: flex; padding-top: 10px; padding-bottom: 10px">
+				<img id="barMenu" class="barMenu" src="icon/menu.png">
+				<div id="bibChap" class="toolLabel">Genesis 3</div>
+				<div id="bibVersion" class="toolLabel">KJV</div>
+				<div class="spacer"></div>
+                <img id="histIcon" style="padding-left: 10px; padding-right: 10px; cursor: pointer;" src="icon/arrow-left.png">
+				<img id="searchIcon" style="padding-left: 10px; padding-right: 10px; cursor: pointer;" src="icon/magnify.png">
+				<img id="addBible" style="padding-left: 10px; padding-right: 10px; cursor: pointer;" src="icon/plus-box.png">
+				<img id="dotMenu" style="padding-left: 10px;  padding-right: 12px; cursor: pointer;" src="icon/dots.png">
+			</div>
+		</div>
+		
+		<div id="chap-main" class="bibMain;">
+            <p style="color: gray; width: 80%; margin: auto; padding-top: 30px;">Caching initial Bible data...<br><br><i>This is only done once unless refreshed or updated.</i></p>
+        </div>
+		
+		<div id="bibDivider"">
+			<span id="divChap" class="toolLabel" style="padding-left: 10px;">Genesis 1</span>
+			<span id="divVersion" class="toolLabel" style="padding-left: 10px;">KJV</span>
+			<div class="spacer"></div>
+
+			<img id="changeFont" style="padding-left: 18px; cursor: pointer;" src="icon/format-font.png">
+            
+			<img id="syncLock" style="padding-left: 18px; cursor: pointer;" src="icon/lock.png">
+			<img id="divClose" style="padding-left: 22px; padding-right: 12px; cursor: pointer;" src="icon/close.png">
+		</div>
+		
+		<div id="chap-main2" class="bibMain">
+            <p style="color: gray; width: 80%; margin: auto; padding-top: 30px;">Caching initial 1611 Bible data...<br><br><i>This is only done once unless refreshed or updated.</i></p>
+		</div>
+        <div id="prevDiv"><b>PREV</b></div>
+        <div id="nextDiv"><b>NEXT</b></div>
+	</div>
+
+
+            <!-- Search Panel -->
+            <div class="tabcontent" id="search-panel">
+                <div id="sch-head" class="head1" style="margin-bottom: 10px; display: flex">
+                    <img id="toBibPage" style="height: 24px; color: #660000; margin: auto;" src="icon/arrow-left.png">
+                    <div class="spacer"></div>
+                    <div align="center">
+                        
+                        <h2 class="bib">Bible Search <span id="versionLabel">(KJV)</span></h2>
+                        <p class="chapHead2">Enter word, words, or "phrase"</p>
+                        <form id='search' style="display: inline; padding-bottom: 10px">
+                            <input type="text" id="schEntry" value="" placeholder=" Word or Phrase"> 
+                            <input id="doSearch" type="submit" value="Search">
+                        </form>
+                    </div>
+                    <div class="spacer"></div>
+                </div>
+				
+                <div class="head1" id="search-details">
+                    <p style="color: brown;" align="center"><b>Search Tips</b></p>
+                    <p style="color: gray; font-size: smaller" align="left"><b>Enter Bible word, words, or
+                        phrase (in quotes) to search.</b></p>
+                    <p style="color: gray; font-size: smaller" align="left"> <b>Wildcard = * </b><br>
+                      <i>right*</i> will also find <i>righteous, rightly, etc.</i><b><br>
+                        Any Word = | </b><br>
+                      Searches for ANY entered word.&nbsp; i.e. <i>day | night. </i>ALL words
+                      is default.<i><br>
+                      </i><b>Limit Range = &gt;</b><br>
+                      Limits search to entered book(s). <i>i.e. ot &gt; holy; Psa &gt; peace;
+                        Mat-Joh &gt; mercy, etc. <br>
+                      </i><b>Search Order = ^</b><br>
+                      Only matches in listed order,<i> i.e. holy ^ lord.<br>
+                      </i></p>                
+                </div>
+				<div id="visualHolder">
+				<div class="search-visual" id="search-visual" style="display: block;"></div>
+				<span class="search-visual-label" id="search-visual-label"></span></div>
+				
+                <div id="search-hits" class="displayPage"></div>
+            </div>
+        
+            <!-- Topics Panel -->
+            <div class="tabcontent" id="topic-panel">
+                <div id="list-head" class="head1" style="margin-bottom: 10px;">
+                    <div align="center">
+                        <h2 class="bib">Catalog of Bible Topics</h2>
+						<h3 class="promise">Compiled from Various Sources</h3>
+                    </div>
+                </div>
+				
+                <div id="topicTitleBar" class="titleBar">
+                    <div class="spacer"></div>
+                    <span id="topicTitle" class="subTitle">Select Topic List</span>
+                    <div class="spacer"></div>
+                </div>
+                <div id="topics" style="padding-top: 10px;">
+                    <p style="width: 80%; color: gray; margin: auto; padding-top: 30px;"><i>Click "Select Topic List" above to view available lists.</i></p>
+                </div>
+            </div>
+
+            <!-- Devotion Panel -->
+            <div class="tabcontent" id="dev-panel">
+                <div id="dev-head" class="head1" style="position: relative; margin-bottom: 5px;">
+					<!--<img id="devBarMenuIcon" src="icon/menu.png"> -->
+                    <div align="center">
+                        <h2 class="bib">Daily Devotion Library</h2>
+                        <div id="dateLabel" style="font-weight: bold; ">Today's Date</div>
+                    </div>
+                </div>
+				
+                <div id="openDevTitles"></div>
+                <div id="devTitleBar" class="titleBar">
+                    
+                    <!-- <img id="devBackIcon" src="icon/arrow-left.png"> -->
+                    <div class="spacer"></div>
+                    <span id="devTitle" class="subTitle">Select Devotion</span>
+                    <div class="spacer"></div>
+                    <!-- <img id="devForwIcon" src="icon/arrow-right.png"> -->
+                    
+                </div>
+				<div id="devPage" class="displayPage">
+                    <p style="width: 80%; color: gray; margin: auto; padding-top: 30px;">Tap <i>Select Devotion</i> above to load available online devotion titles.</p>
+				</div>
+			</div>
+
+            <!-- Library Panel -->
+            <div class="tabcontent" id="lib-panel">
+                <div id="lib-head" class="head1" style="position: relative; margin-bottom: 5px;">
+					<!-- <img id="libBarMenuIcon" src="icon/menu.png"> -->
+                    <div align="center">
+                        <h2 id="libChurchHead" class="bib">-MyKjv.com-</h2>
+						<h3 class="bib library">King James Library</h3>
+                    </div>
+                </div>
+                
+                <div id="libTitleBar" class="titleBar">
+                    
+                    <img id="libBackIcon" src="icon/arrow-left.png">
+                    <div class="spacer"></div>
+                    <span id="libTitle" class="subTitle">Select Title</span>
+                    <div class="spacer"></div>
+                    <img id="libForwIcon" src="icon/arrow-right.png">
+				
+                </div>
+
+				<div id="libPage" class="displayPage">
+                    <p style="width: 80%; color: gray; margin: auto; padding-top: 30px;">Tap <i>Title Bar</i> above to load available online book titles.<br><br>
+                    Titles may be updated occasionally. If you have a book or article about the King James Bible (or know of one) that would be a good fit here, let us know and we may include it in the rotation.</p> 
+				</div>
+			</div>
+            
+            <div id="loader"></div>
+
+<div id="bar">
+    <button id="bible-tab" class="tabButton" style="background: url('icon/book-open.png') no-repeat; background-position: center 15%;">Bible</button>
+    <button id="list-tab" class="tabButton" style="background: url('icon/view-list.png') no-repeat; background-position: center 15%;">Topics</button>
+    <button id="dev-tab" class="tabButton" style="background: url('icon/book-clock.png') no-repeat; background-position: center 15%;">Devotion</button>
+    <button id="lib-tab" class="tabButton" style="background: url('icon/bookshelf.png') no-repeat; background-position: center 15%;">Library</button>
+</div>
+
+<script type="module" src="/mykjv.js"></script>
+   
+</body>
+</html> 
