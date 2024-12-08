@@ -212,19 +212,19 @@ console.log('Is mobile = ' + isMobile);
 
 
 var fullBook = {
-	'Gen': 'Genesis', 'Exo': 'Exodus', 'Lev': 'Leviticus', 'Num': 'Numbers', 'Deu': 'Deuteronomy', 
+	'Gen': 'Genesis', 'Exo': 'Exodus', 'Lev': 'Leviticus', 'Num': 'Numbers', 'Deu': 'Deuter.', 
 	'Jos': 'Joshua', 'Jdg': 'Judges', 'Rth': 'Ruth', '1Sa': '1 Samuel', '2Sa': '2 Samuel', '1Ki': '1 Kings', 
-	'2Ki': '2 Kings', '1Ch': '1 Chronicles', '2Ch': '2 Chronicles', 'Ezr': 'Ezra', 'Neh': 'Nehemiah', 
+	'2Ki': '2 Kings', '1Ch': '1 Chron.', '2Ch': '2 Chron.', 'Ezr': 'Ezra', 'Neh': 'Nehemiah', 
 	'Est': 'Esther', 'Job': 'Job', 'Psa': 'Psalms', 'Pro': 'Proverbs', 'Ecc': 'Eccles.', 
 	'Son': 'Song Solom.', 'Isa': 'Isaiah', 'Jer': 'Jeremiah', 'Lam': 'Lament.', 'Eze': 'Ezekiel', 
 	'Dan': 'Daniel', 'Hos': 'Hosea', 'Joe': 'Joel', 'Amo': 'Amos', 'Oba': 'Obadiah', 'Jon': 'Jonah', 
-	'Mic': 'Micah', 'Nah': 'Nahum', 'Hab': 'Habbakkuk', 'Zep': 'Zephaniah', 'Hag': 'Haggai', 'Zec': 'Zechariah', 
+	'Mic': 'Micah', 'Nah': 'Nahum', 'Hab': 'Habbak.', 'Zep': 'Zephan.', 'Hag': 'Haggai', 'Zec': 'Zechar.', 
 	'Mal': 'Malachi', 'Mat': 'Matthew', 'Mar': 'Mark', 'Luk': 'Luke', 'Joh': 'John', 'Act': 'Acts', 
-	'Rom': 'Romans', '1Co': '1 Corinth.', '2Co': '2 Corinth.', 'Gal': 'Galatians', 'Eph': 'Ephesians', 
-	'Phi': 'Philippians', 'Col': 'Colossians', '1Th': '1 Thess.', '2Th': '2 Thess.', 
+	'Rom': 'Romans', '1Co': '1 Corinth.', '2Co': '2 Corinth.', 'Gal': 'Galatians', 'Eph': 'Ephes.', 
+	'Phi': 'Philip.', 'Col': 'Coloss.', '1Th': '1 Thess.', '2Th': '2 Thess.', 
 	'1Ti': '1 Timothy', '2Ti': '2 Timothy', 'Tit': 'Titus', 'Phm': 'Philemon', 'Heb': 'Hebrews', 
 	'Jam': 'James', '1Pe': '1 Peter', '2Pe': '2 Peter', '1Jo': '1 John', '2Jo': '2 John', '3Jo': '3 John', 
-	'Jud': 'Jude', 'Rev': 'Revelation',
+	'Jud': 'Jude', 'Rev': 'Revelat.',
 };
 
 const bookList = Object.keys(fullBook);
@@ -235,7 +235,7 @@ var chapIdx = {
 	"1Ki": 22, "2Ki": 25, "1Ch": 29, "2Ch": 36, "Ezr": 10, "Neh": 13, "Est": 11, "Job": 42, "Psa": 150, "Pro": 31, 
 	"Ecc": 12, "Son": 8, "Isa": 66, "Jer": 52, "Lam": 5, "Eze": 48, "Dan": 12, "Hos": 14, "Joe": 3, "Amo": 9, 
 	"Oba": 1, "Jon": 4, "Mic": 7, "Nah": 3, "Hab": 3, "Zep": 3, "Hag": 2, "Zec": 14, "Mal": 4, "Mat": 28, 
-	"Mar": 16, "Luk": 24, "Joh": 22, "Act": 28, "Rom": 16, "1Co": 16, "2Co": 13, "Gal": 6, "Eph": 6, "Phi": 4, 
+	"Mar": 16, "Luk": 24, "Joh": 21, "Act": 28, "Rom": 16, "1Co": 16, "2Co": 13, "Gal": 6, "Eph": 6, "Phi": 4, 
 	"Col": 4, "1Th": 5, "2Th": 3, "1Ti": 6, "2Ti": 4, "Tit": 3, "Phm": 1, "Heb": 13, "Jam": 5, "1Pe": 5, 
 	"2Pe": 3, "1Jo": 5, "2Jo": 1, "3Jo": 1, "Jud": 1, "Rev": 22,
 };
@@ -350,11 +350,12 @@ function showBookGrid(bk, idx) {
 function onBookPick(evt) {
 	currentBook = evt.target.id.split('-')[1]; 
 	var chaps = chapIdx[currentBook]
-	chapGrid(chaps)
+	buildChapGrid(chaps)
+	document.getElementById("pickLabel").innerHTML = fullBook[currentBook]
 }
 
 
-function chapGrid(chaps) {
+function buildChapGrid(chaps) {
 	var chapGrid = document.getElementById('chapGrid');
 	chapGrid.innerHTML = "";
 	
@@ -369,8 +370,9 @@ function chapGrid(chaps) {
 		});
 		chapGrid.appendChild(cell);      
 	};
-	
+		
 	document.getElementById("chapTab").checked = true;
+	
 };
 
 function onChapPick(evt) {
@@ -378,9 +380,10 @@ function onChapPick(evt) {
 	document.getElementById("pickWin").style.display = 'none';
 	
 	var chap = currentBook + ' ' + ch + ':';
+	var fullChap = fullBook[currentBook] + ' ' + ch + ':';
 	
 	var vsTxtList = displayBibChap(chap, []);
-	
+	document.getElementById("pickLabel").innerHTML = fullChap
 }
 
 
@@ -433,7 +436,7 @@ async function onHelp(evt) {
         isAccount = true;
     }
 	
-	txt = '<span id="helpClose" class="closebtn">X</span>' + txt;
+	txt = '<span id="helpClose" class="closebtn"><img id="divClose" style=padding-right: 10px; cursor: pointer;" src="icon/close.png"></span>' + txt;
     
 	var helpWin = buildHelpPage();
 	
@@ -1245,6 +1248,12 @@ function displayPopup(evt, title, body) {
     
 	console.log(target.id.slice(4, )); 
 	
+	// To update chap picker
+	currentBook = target.id.slice(0, 3);
+	// console.log(currentBook) 
+	var chaps = chapIdx[currentBook]
+	buildChapGrid(chaps)
+	
 	if (target.id.indexOf('def-') > -1){
 		showDefinition(evt, target.id.slice(4, ))
 		return
@@ -1306,6 +1315,7 @@ function displayPopup(evt, title, body) {
 		var ref = evt.target.id;
 		
 		var chap = ref.slice(0, ref.search(/:/) + 1);
+				
 		var vsList = ref.slice(ref.search(/:/) + 1).split((/[-,\;]+ ?/));
 
         var dashPatt = /(?:\u00AD|\u002D|\u2010|\u2011|\u2012|\u2013|\u2212)/;
@@ -1332,8 +1342,8 @@ function displayPopup(evt, title, body) {
 		}
         
         // Clear chapter picker grid
-        var chapGrid = document.getElementById('chapGrid');
-        chapGrid.innerHTML = "";
+        // var chapGrid = document.getElementById('chapGrid');
+        // chapGrid.innerHTML = "";
 		
 		displayBibChap(chap, vsList)
         
@@ -2810,6 +2820,13 @@ function showInitialChap() {
 		currentChap = 'Joh 1:';
 	}
 	
+	currentBook = currentChap.slice(0, 3)
+	var chap = chapIdx[currentBook]
+	buildChapGrid(chap)
+
+	var fullChap = fullBook[currentBook] + ' ' + currentChap.slice(4,);
+	document.getElementById("pickLabel").innerHTML = fullChap;
+
     prepareBible();
 }
 
@@ -2878,6 +2895,16 @@ function parseQuery(pageUrl) {
 }
 
 
+function isInstalled() {
+  // For iOS
+  if (window.navigator.standalone) return true;
+
+  // For Android
+  if (window.matchMedia("(display-mode: standalone)").matches) return true;
+
+  // If neither is true, it's not installed
+  return false;
+}
 
 
 
@@ -3172,6 +3199,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
 	//showInitialChap();
+	
+	console.log('Is installed', isInstalled())
 
 })
 

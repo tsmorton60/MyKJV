@@ -1,6 +1,6 @@
 
 
-const VERSION = "v2.1";
+const VERSION = "v2.5";
 
 const cacheName = `mykjv-${VERSION}`;
 const staticAssets = [
